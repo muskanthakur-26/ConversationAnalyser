@@ -4,7 +4,7 @@ import helper
 import matplotlib.pyplot as plt
     
 st.set_page_config(layout="wide")
-st.sidebar.title('Whatsapp Chat Analyser')
+st.sidebar.title('Conversation Analyser')
 uploaded_file = st.sidebar.file_uploader("Choose a file")
 if uploaded_file is not None:
     bytes_data = uploaded_file.getvalue()
