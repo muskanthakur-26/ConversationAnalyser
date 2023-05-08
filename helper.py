@@ -1,7 +1,7 @@
 import streamlit as st
-from urlextract import URLExtract
 import pandas as pd
 import numpy as np
+from urlextract import URLExtract
 import squarify 
 import matplotlib.pyplot as plt
 from collections import Counter
