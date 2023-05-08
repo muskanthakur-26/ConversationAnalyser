@@ -1,25 +1,20 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-from urlextract import URLExtract
 import squarify 
 import matplotlib.pyplot as plt
 from collections import Counter
 import emoji
 import seaborn as sns
-extract=URLExtract()
 
 def fetch_stats(person,df):
   st.title("Top Statistics")
-  col1,col2,col3,col4=st.columns(4)
+  col1,col2,col3=st.columns(3)
   if person != "Overall":
     df=df[df['user']==person]
   words=[]
   for msg in df['message']:
     words.extend(msg.split())
-  link=[]
-  for msg in df['message']:
-    link.extend(extract.find_urls(msg))
   with col1:
     st.subheader("Total Messages")
     st.subheader(df.shape[0])
@@ -29,9 +24,6 @@ def fetch_stats(person,df):
   with col3:
     st.subheader("Media Shared")
     st.subheader(df[df['message']=='<Media omitted>\n'].shape[0])
-  with col4:
-    st.subheader("Links Shared")
-    st.subheader(len(link))
     
 def most_busy(df):
   x=df['user'].value_counts().head()
